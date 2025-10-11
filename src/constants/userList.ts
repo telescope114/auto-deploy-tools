@@ -13,6 +13,6 @@ export const userList: User[] = [
   },
 ];
 
-export const userInfoList: Map<string, string> = new Map(
+export const userInfoMap: Map<string, string> = new Map(
   userList.map((user) => [user.name, JSON.stringify(user)]),
 );

@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import { createApp } from "./app";
 
-const PORT = Number(process.env.PORT ?? 3000);
+const PORT = Number(process.env.PORT ?? 3001);
 
 const app = createApp();
 const server = createServer(app.callback());
