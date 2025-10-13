@@ -2,7 +2,7 @@ import type { RouterContext } from "@koa/router";
 import type { User } from "../types/user";
 import { userList, userInfoMap } from "../constants/userList";
 import { badRequest, requestError, requestSuccess } from "./common.controller";
-import { encryptionUserInfo } from "../helpers/encryption";
+import { encryptText } from "../helpers/encryption";
 import { checkAuthorization } from "../helpers/authorization";
 
 export const getLogin = async (ctx: RouterContext): Promise<void> => {
@@ -14,7 +14,7 @@ export const getLogin = async (ctx: RouterContext): Promise<void> => {
     );
 
     if (user) {
-      void requestSuccess(ctx, { authentication: encryptionUserInfo(userInfoMap.get(user.name)!) });
+      void requestSuccess(ctx, { authentication: encryptText(userInfoMap.get(user.name)!) });
     } else {
       void badRequest(ctx, new Error("账号密码错误"));
     }

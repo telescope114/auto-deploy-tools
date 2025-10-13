@@ -7,6 +7,6 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "html"],
     },
-    include: ["tests/**/*.test.ts"],
+    include: ["tests/**/*.test.ts", "src/helpers/*.test.ts"],
   },
 });
